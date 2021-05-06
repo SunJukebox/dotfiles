@@ -1,5 +1,4 @@
 -- Latex LSP Config (texlab)
-
 local on_attach = require('config.lsp.on_attach')
 require'lspconfig'.texlab.setup{
 	settings = {
@@ -11,7 +10,7 @@ require'lspconfig'.texlab.setup{
 		latex = {
 			build = {
 				args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f", "-pvc" },
-				executable = "latexmk",
+				executable = "tectonic",
 				onSave = true
 			},
 			forwardSearch = {
