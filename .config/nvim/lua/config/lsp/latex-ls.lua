@@ -10,12 +10,12 @@ require'lspconfig'.texlab.setup{
 		latex = {
 			build = {
 				args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f", "-pvc" },
-				executable = "tectonic",
+				executable = "latexmk",
 				onSave = true
 			},
 			forwardSearch = {
-				executable = "okular",
-				args = {"--unique", "file:%p#src:%l%f"}
+				executable = "zathura",
+				args = {"--synctex-forward", "%l:1:%f", "%p"}
 			},
 			lint = {
 				onSave = true
