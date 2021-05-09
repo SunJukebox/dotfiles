@@ -39,6 +39,11 @@ local check_back_space = function()
     end
 end
 
+-- completion key bindings
+vim.api.nvim_set_keymap('i', "<C-Space>", [[compe#complete()]], {noremap = true, silent = true, expr = true})
+vim.api.nvim_set_keymap('i', "<C-g><CR>", [[compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })]], {noremap = true, silent = true, expr = true})
+vim.api.nvim_set_keymap('i', "<C-e>", [[compe#close('<End>')]], {noremap = true, silent = true, expr = true})
+
 -- Use (s-)tab to:
 -- move to prev/next item in completion menuone
 -- jump to prev/next snippet's placeholder

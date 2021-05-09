@@ -94,3 +94,4 @@ vim.o.showtabline = 2 -- Always show tabs
 vim.o.backup = false -- This is recommended by coc
 vim.o.writebackup = false -- This is recommended by coc
 vim.o.timeoutlen = 100 -- By default timeoutlen is 1000 ms
+vim.o.clipboard = "unnamedplus" -- Have keyboard use system clipboard (xclip)
