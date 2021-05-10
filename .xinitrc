@@ -55,6 +55,8 @@ setxkbmap -layout us,us -variant dvp, -option grp:alt_caps_toggle
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+# restore background upon startup
+
 # start slstatus
 slstatus &
 
