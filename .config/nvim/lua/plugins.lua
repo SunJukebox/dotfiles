@@ -42,13 +42,17 @@ return require('packer').startup(function(use)
         config = [[require('config.telescope')]]
   	}
 
+    -- Devicons
+    use {
+        'kyazdani42/nvim-web-devicons'
+    }
 	-- Formatting
 	-- use {'mhartington/formatter.nvim', config = [[require('config.format')]]}
 
-    -- NvimTree
+    --[[ NvimTree
     use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'},
        config = [[require('config.nvim-tree')]]
-    }
+    -- }
 
     -- Vimtex (for math() context in UltiSnips)
     use {'lervag/vimtex'}

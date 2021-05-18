@@ -16,7 +16,7 @@ vim.api.nvim_set_keymap('n', '<A-k>', '<C-w>k', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<A-l>', '<C-w>l', {noremap = true, silent = true})
 
 -- File explorer
--- vim.api.nvim_set_keymap('n', '<Leader>x', ':Lexplore<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>x', ':Lexplore<CR>', {noremap = true, silent = true})
 
 -- Better indenting
 vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true, silent = true})

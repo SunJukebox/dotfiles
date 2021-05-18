@@ -85,11 +85,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
-  ["nvim-tree.lua"] = {
-    config = { "require('config.nvim-tree')" },
-    loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     config = { "require('config.treesitter')" },
     loaded = true,
@@ -141,18 +136,14 @@ time("Config for tokyonight.nvim", false)
 time("Config for nvim-compe", true)
 require('config.compe')
 time("Config for nvim-compe", false)
--- Config for: nvim-tree.lua
-time("Config for nvim-tree.lua", true)
-require('config.nvim-tree')
-time("Config for nvim-tree.lua", false)
--- Config for: nvim-treesitter
-time("Config for nvim-treesitter", true)
-require('config.treesitter')
-time("Config for nvim-treesitter", false)
 -- Config for: telescope.nvim
 time("Config for telescope.nvim", true)
 require('config.telescope')
 time("Config for telescope.nvim", false)
+-- Config for: nvim-treesitter
+time("Config for nvim-treesitter", true)
+require('config.treesitter')
+time("Config for nvim-treesitter", false)
 -- Config for: ultisnips
 time("Config for ultisnips", true)
 require('config.ultisnips')
