@@ -55,7 +55,7 @@ opt('number', true, window)
 opt('relativenumber', true, window)
 
 -- Font
-vim.o.guifont = "FiraCode Nerd Font:style=Medium,Regular:h14"
+vim.o.guifont = "FiraCode Nerd Font:h14"
 
 -- Miscellaneous
 vim.o.scrolloff = 0
