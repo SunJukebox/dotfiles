@@ -2,24 +2,21 @@
 local on_attach = require('config.lsp.on_attach')
 require'lspconfig'.texlab.setup{
 	settings = {
-        bibtex = {
-            formatting = {
-                lineLength = 90
-            }
-        },
-		latex = {
+		texlab = {
 			build = {
-				args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f", "-pvc" },
-				executable = "latexmk",
-				onSave = true
+                executable = "latexmk",
+                args = {"-pdf", "-interaction=nonstopmode", "-synctex=1", "%f", "-pvc"},
+                onSave = true,
+				isContinuous = true
 			},
 			forwardSearch = {
 				executable = "zathura",
 				args = {"--synctex-forward", "%l:1:%f", "%p"}
 			},
-			lint = {
-				onSave = true
-			}
+			chktex = {
+				onOpenAndSave = true
+			},
+            formatterLineLength = 80
 		}
 	},
     on_attach = on_attach
