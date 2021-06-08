@@ -14,6 +14,7 @@ end
 require('config.lsp.latex-ls')
 require('config.lsp.lua-ls')
 require('config.lsp.py-ls')
+require('config.lsp.bash-ls')
 
 -- Auto-format *.py (python) files prior to saving them
 -- vim.cmd("autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)")
