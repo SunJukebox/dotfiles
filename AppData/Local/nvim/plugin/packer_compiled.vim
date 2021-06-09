@@ -47,8 +47,8 @@ local function save_profiles(threshold)
 end
 
 time("Luarocks path setup", true)
-local package_path_str = "/home/kyle/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/kyle/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/kyle/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/kyle/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/kyle/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
+local package_path_str = "C:\\Users\\Kyle\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?.lua;C:\\Users\\Kyle\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\Kyle\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\Kyle\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
+local install_cpath_pattern = "C:\\Users\\Kyle\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.0-beta3\\lib\\lua\\5.1\\?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,61 +74,61 @@ _G.packer_plugins = {
   ["nvim-compe"] = {
     config = { "require('config.compe')" },
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-compe"
   },
   ["nvim-lspconfig"] = {
     config = { "require('config.lsp')" },
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspconfig"
   },
   ["nvim-lspinstall"] = {
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-lspinstall"
   },
   ["nvim-tree.lua"] = {
     config = { "require('config.nvim-tree')" },
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     config = { "require('config.treesitter')" },
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\popup.nvim"
   },
   ["telescope.nvim"] = {
     config = { "require('config.telescope')" },
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim"
   },
   ["tokyonight.nvim"] = {
     config = { "require('config.colorschemes.tokyonight')" },
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim"
   },
   ultisnips = {
     config = { "require('config.ultisnips')" },
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/ultisnips"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ultisnips"
   },
   vimtex = {
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/vimtex"
+    path = "C:\\Users\\Kyle\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vimtex"
   }
 }
 
@@ -137,30 +137,30 @@ time("Defining packer_plugins", false)
 time("Config for tokyonight.nvim", true)
 require('config.colorschemes.tokyonight')
 time("Config for tokyonight.nvim", false)
--- Config for: nvim-compe
-time("Config for nvim-compe", true)
-require('config.compe')
-time("Config for nvim-compe", false)
--- Config for: nvim-tree.lua
-time("Config for nvim-tree.lua", true)
-require('config.nvim-tree')
-time("Config for nvim-tree.lua", false)
--- Config for: nvim-treesitter
-time("Config for nvim-treesitter", true)
-require('config.treesitter')
-time("Config for nvim-treesitter", false)
 -- Config for: telescope.nvim
 time("Config for telescope.nvim", true)
 require('config.telescope')
 time("Config for telescope.nvim", false)
--- Config for: ultisnips
-time("Config for ultisnips", true)
-require('config.ultisnips')
-time("Config for ultisnips", false)
+-- Config for: nvim-compe
+time("Config for nvim-compe", true)
+require('config.compe')
+time("Config for nvim-compe", false)
+-- Config for: nvim-treesitter
+time("Config for nvim-treesitter", true)
+require('config.treesitter')
+time("Config for nvim-treesitter", false)
+-- Config for: nvim-tree.lua
+time("Config for nvim-tree.lua", true)
+require('config.nvim-tree')
+time("Config for nvim-tree.lua", false)
 -- Config for: nvim-lspconfig
 time("Config for nvim-lspconfig", true)
 require('config.lsp')
 time("Config for nvim-lspconfig", false)
+-- Config for: ultisnips
+time("Config for ultisnips", true)
+require('config.ultisnips')
+time("Config for ultisnips", false)
 if should_profile then save_profiles() end
 
 END
