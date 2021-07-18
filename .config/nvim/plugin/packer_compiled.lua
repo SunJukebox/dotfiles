@@ -1,17 +1,14 @@
-" Automatically generated packer.nvim plugin loader code
+-- Automatically generated packer.nvim plugin loader code
 
-if !has('nvim-0.5')
-  echohl WarningMsg
-  echom "Invalid Neovim version for packer.nvim!"
-  echohl None
-  finish
-endif
+if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then
+  vim.api.nvim_command('echohl WarningMsg | echom "Invalid Neovim version for packer.nvim! | echohl None"')
+  return
+end
 
-packadd packer.nvim
+vim.api.nvim_command('packadd packer.nvim')
 
-try
+local no_errors, error_msg = pcall(function()
 
-lua << END
   local time
   local profile_info
   local should_profile = false
@@ -46,7 +43,7 @@ local function save_profiles(threshold)
   _G._packer.profile_output = results
 end
 
-time("Luarocks path setup", true)
+time([[Luarocks path setup]], true)
 local package_path_str = "/home/kyle/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/kyle/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/kyle/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/kyle/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
 local install_cpath_pattern = "/home/kyle/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
@@ -57,24 +54,28 @@ if not string.find(package.cpath, install_cpath_pattern, 1, true) then
   package.cpath = package.cpath .. ';' .. install_cpath_pattern
 end
 
-time("Luarocks path setup", false)
-time("try_loadstring definition", true)
+time([[Luarocks path setup]], false)
+time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
   local success, result = pcall(loadstring(s))
   if not success then
-    print('Error running ' .. component .. ' for ' .. name)
-    error(result)
+    vim.schedule(function()
+      vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
+    end)
   end
   return result
 end
 
-time("try_loadstring definition", false)
-time("Defining packer_plugins", true)
+time([[try_loadstring definition]], false)
+time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["nvim-compe"] = {
-    config = { "require('config.compe')" },
+  ["formatter.nvim"] = {
     loaded = true,
-    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/formatter.nvim"
+  },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
   },
   ["nvim-lspconfig"] = {
     config = { "require('config.lsp')" },
@@ -89,6 +90,10 @@ _G.packer_plugins = {
     config = { "require('config.treesitter')" },
     loaded = true,
     path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
+  ["nvim-treesitter-textobjects"] = {
+    loaded = true,
+    path = "/home/kyle/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -127,38 +132,31 @@ _G.packer_plugins = {
   }
 }
 
-time("Defining packer_plugins", false)
+time([[Defining packer_plugins]], false)
 -- Config for: tokyonight.nvim
-time("Config for tokyonight.nvim", true)
+time([[Config for tokyonight.nvim]], true)
 require('config.colorschemes.tokyonight')
-time("Config for tokyonight.nvim", false)
--- Config for: nvim-compe
-time("Config for nvim-compe", true)
-require('config.compe')
-time("Config for nvim-compe", false)
--- Config for: telescope.nvim
-time("Config for telescope.nvim", true)
-require('config.telescope')
-time("Config for telescope.nvim", false)
+time([[Config for tokyonight.nvim]], false)
 -- Config for: nvim-treesitter
-time("Config for nvim-treesitter", true)
+time([[Config for nvim-treesitter]], true)
 require('config.treesitter')
-time("Config for nvim-treesitter", false)
--- Config for: ultisnips
-time("Config for ultisnips", true)
-require('config.ultisnips')
-time("Config for ultisnips", false)
+time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-lspconfig
-time("Config for nvim-lspconfig", true)
+time([[Config for nvim-lspconfig]], true)
 require('config.lsp')
-time("Config for nvim-lspconfig", false)
+time([[Config for nvim-lspconfig]], false)
+-- Config for: ultisnips
+time([[Config for ultisnips]], true)
+require('config.ultisnips')
+time([[Config for ultisnips]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
 if should_profile then save_profiles() end
 
-END
+end)
 
-catch
-  echohl ErrorMsg
-  echom "Error in packer_compiled: " .. v:exception
-  echom "Please check your config for correctness"
-  echohl None
-endtry
+if not no_errors then
+  vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
+end

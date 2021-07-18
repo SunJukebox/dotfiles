@@ -1,6 +1,5 @@
 -- Latex LSP Config (texlab)
-local on_attach = require('config.lsp.on_attach')
-require'lspconfig'.texlab.setup{
+return {
 	settings = {
 		texlab = {
 			build = {
@@ -19,7 +18,6 @@ require'lspconfig'.texlab.setup{
             formatterLineLength = 80
 		}
 	},
-    on_attach = on_attach
 }
 
 -- Auto-format *.rs (rust) files prior to saving them

@@ -1,12 +1,30 @@
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-        'c', 'latex', 'lua', 'python'
+return {
+  ensure_installed = {'c', 'latex', 'lua', 'python'},
+  highlight = {enable = true},
+  indent = {enable = true},
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<Return>",
+      node_incremental = "<Return>",
+      scope_incremental = "<Tab>",
+      node_decremental = "<S-Tab>",
     },
-    highlight = {enable = true, use_languagetree = true},
-    indent = {enable = false},
-    incremental_selection = {enable = true},
-    refactor = {
-        smart_rename = {enable = true, keymaps = {smart_rename = "grr"}},
-        highlight_definitions = { enable = true }
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        af = "@function.outer",
+        ["if"] = "@function.inner",
+        ac = "@class.outer",
+        ic = "@class.inner",
+      },
     },
+    lsp_interop = {
+      enable = true,
+      peek_definition_code = {df = "@function.outer", dF = "@class.outer"},
+    },
+  },
 }

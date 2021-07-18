@@ -1,31 +1,71 @@
-vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
+local S = {silent = true}
+local E = {expr = true}
+local function T(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 vim.g.mapleader = ' '
 
--- No highlighting
-vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', {noremap = true, silent = true})
-
--- Quick save
-vim.api.nvim_set_keymap('n', '<C-Z>', ':update<CR>', {noremap = true, silent = true})
--- vim.api.nvim_set_keymap('v', '<C-Z>', ':update<CR>', {noremap = true, silent = true})
--- vim.api.nvim_set_keymap('i', '<C-Z>', ':update<CR>', {noremap = true, silent = true})
-
--- Better window movement
-vim.api.nvim_set_keymap('n', '<A-h>', '<C-w>h', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<A-j>', '<C-w>j', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<A-k>', '<C-w>k', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<A-l>', '<C-w>l', {noremap = true, silent = true})
-
--- File explorer
-vim.api.nvim_set_keymap('n', '<Leader>x', ':Lexplore<CR>', {noremap = true, silent = true})
-
--- Better indenting
-vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true, silent = true})
-
--- Switch buffer with <TAB>
-vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevioius<CR>', {noremap = true, silent = true})
-
--- Move selected line or block of text in visual mode
-vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
+return {
+    lsp = {
+        buf = {
+            declaration      = "gd",
+            definition       = "<c-]>",
+            hover            = "<F1>",
+            implementation   = "gD",
+            signature_help   = "<c-k>",
+            type_definition  = "1gD",
+            references       = "gr",
+            document_symbol  = "g0",
+            workspace_symbol = "gW",
+            rename           = "<F2>",
+            code_action      = "<F16>"},
+        diagnostic = {
+            goto_next        = "<M-Right>",
+            goto_prev        = "<M-Left>",
+            set_loclist      = "<F7>"},
+    },
+    global = {
+        n = {
+            {"gb",             "<Cmd>ls<CR>:b<Space>", S},
+            {"db",             "<Cmd>%bd<bar>e#<CR>", S},
+            {"<C-n>",          [[<Cmd>let $CD=expand('%:p:h')<CR><Cmd>Term<CR>cd "$CD"<CR>clear<CR>]], S},
+            {"<Leader>x",      "<Cmd>Lexplore<CR>"},
+            {"<F3>",           "<Cmd>only<CR>", S},
+            {"<F6>",           "<Cmd>lua RunTests()<CR>", S},
+            {"<F8>",           "<Cmd>Gdiff<CR>", S},
+            {"<Leader>w",      "<Cmd><C-w><CR>", S},
+            {"<Leader>c",      "<Cmd>so $VIMRUNTIME/syntax/hitest.vim<CR>", S},
+            {"<Bslash>",        "@=((foldclosed(line('.')) < 0) ? 'zC' : 'zO')<CR>", S},
+            {"Q",              "<Nop>", S},
+            {"<Esc>",          "<Cmd>noh<CR>"},
+            {"<F10>",          [[<Cmd>echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')<CR>]], S},
+            {'<Space>', '<NOP>', S},
+            {'<Leader>h', ':set hlsearch!<CR>', S},
+            {'<Leader>z', ':update<CR>', S},
+            {'<TAB>', ':bnext<CR>', S},         -- Switch buffer with <TAB>
+            {'<S-TAB>', ':bprevious<CR>', S},  -- "
+        },
+        c = {
+            {"<Up>",           T'wildmenumode() ? "<Left>" : "<Up>"', E},
+            {"<Down>",         T'wildmenumode() ? "<Right>" : "<Down>"', E},
+            {"<Left>",         T'wildmenumode() ? "<Up>" : "<Left>"', E},
+            {"<Right>",        T'wildmenumode() ? "<BS><C-Z>" : "<Right>"', E},
+        },
+        i = {
+            {"<Tab>",          [[luaeval("require('utils').SmartTabComplete()")]], E},
+            {"'",              "''<Left>"},
+            {"(",              "()<Left>"},
+            {"[",              "[]<Left>"},
+            {"{",              "{}<Left>"},
+        },
+        v = {
+            {'<', '<gv', S},    -- Better indenting
+            {'>', '>gv',S},     -- "
+        },
+        x = {
+            {'K', ':move \'<-2<CR>gv-gv', S},
+            {'J', ':move \'>+1<CR>gv-gv', S},
+        },
+    },
+}

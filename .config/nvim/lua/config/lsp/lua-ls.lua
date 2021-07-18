@@ -1,7 +1,5 @@
 -- Lua LSP Config (sumneko_lua)
 
-local on_attach = require('config.lsp.on_attach')
-
 local system_name
 if vim.fn.has("mac") == 1 then
   system_name = "macOS"
@@ -24,7 +22,7 @@ else
     sumneko_binary = sumneko_root_path.."/sumneko-lua-language-server"
 end
 
-require'lspconfig'.sumneko_lua.setup {
+return {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     settings = {
         Lua = {
@@ -51,5 +49,4 @@ require'lspconfig'.sumneko_lua.setup {
 	    	},
 		},
     },
-    on_attach = on_attach
 }
